@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bucket</title>
+</head>
+<body>
+<div th:insert="~{fragments/menu :: #nav-menu}"></div>
+<h2>Your bucket</h2>
+<h3>All sum -> <b th:text="${bucket.sum}">1000</b></h3>
+
+<table border="1" align="center">
+    <tr>
+        <td>Title</td>
+        <td>Amount</td>
+        <td>Price</td>
+        <td>Sum</td>
+        <td></td>
+    </tr>
+    <tr th:each="detail : ${bucket.bucketDetails}">
+        <td th:text="${detail.title}">Cheese</td>
+        <td th:text="${detail.amount}">2</td>
+        <td th:text="${detail.price}">11.0</td>
+        <td th:text="${detail.sum}">22</td>
+        <td><a href="#">Remove</a></td>
+    </tr>
+</table>
+</body>
+</html>

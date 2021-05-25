@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Shop</title>
+</head>
+<body>
+<div th:insert="~{fragments/menu :: #nav-menu}"></div>
+
+<h2>Amount clicks -> <b th:text="${amountClicks}">10</b></h2>
+<h2>Your UUID -> <b th:text="${uuid}">10</b></h2>
+</body>
+</html>
