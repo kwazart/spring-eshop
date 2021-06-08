@@ -15,6 +15,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 @Endpoint
 public class GreetingEndpoint {
 
+	public static final String NAMESPACE_URL = "http://polozov.com/springeshop/ws/greeting";
+
 	private GreetingService greetingService;
 
 	@Autowired
@@ -22,7 +24,7 @@ public class GreetingEndpoint {
 		this.greetingService = greetingService;
 	}
 
-	@PayloadRoot(namespace = WebServiceConfig.NAMESPACE_GREETING, localPart = "getGreetingRequest")
+	@PayloadRoot(namespace = NAMESPACE_URL, localPart = "getGreetingRequest")
 	@ResponsePayload // полезная нагрузка
 	public GetGreetingResponse getGreeting(@RequestPayload GetGreetingRequest request) throws DatatypeConfigurationException {
 		GetGreetingResponse response = new GetGreetingResponse();
