@@ -2,9 +2,11 @@ package com.polozov.springeshop.service;
 
 import com.polozov.springeshop.dao.ProductRepository;
 import com.polozov.springeshop.domain.Bucket;
+import com.polozov.springeshop.domain.Product;
 import com.polozov.springeshop.domain.User;
 import com.polozov.springeshop.dto.ProductDTO;
 import com.polozov.springeshop.mapper.ProductMapper;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,11 +21,13 @@ public class ProductServiceImpl implements ProductService {
 	private final ProductRepository productRepository;
 	private final UserService userService;
 	private final BucketService bucketService;
+	private final SimpMessagingTemplate template;
 
-	public ProductServiceImpl(ProductRepository productRepository, UserService userService, BucketService bucketService) {
+	public ProductServiceImpl(ProductRepository productRepository, UserService userService, BucketService bucketService, SimpMessagingTemplate template) {
 		this.productRepository = productRepository;
 		this.userService = userService;
 		this.bucketService = bucketService;
+		this.template = template;
 	}
 
 	@Override
@@ -47,5 +51,13 @@ public class ProductServiceImpl implements ProductService {
 		} else {
 			bucketService.addProducts(bucket, Collections.singletonList(productId));
 		}
+	}
+
+	@Override
+	@Transactional
+	public void addProduct(ProductDTO dto) {
+		Product product = mapper.toProduct(dto);
+		Product savedProduct = productRepository.save(product);
+		template.convertAndSend("/topic/products", ProductMapper.MAPPER.fromProduct(savedProduct));
 	}
 }

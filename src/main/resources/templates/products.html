@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Product list</title>
+    <!--STOMP-->
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
+    <!--app.js dependance: jquery-->
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/product.js"></script>
 </head>
 <body>
 <div th:insert="~{fragments/menu :: #nav-menu}"></div>
 
-<table border="1" align="center">
+<table border="1" align="center" id="table">
     <tr>
         <td>Title</td>
         <td>Price</td>
