@@ -17,17 +17,20 @@ function connect() {
 }
 
 // хук на интерфейс
-// $(function () {
-//     $("form").on('submit', function (e) {
-//         e.preventDefault();
-//     });
-//     $( "#send" ).click(function() { sendContent(); });
-// });
+$(function () {
+    $("form").on('submit', function (e) {
+        e.preventDefault();
+    });
+    $( "#send" ).click(function() { sendContent(); });
+});
 
 // отправка сообщения на сервер
-// function sendContent() {
-//     stomp.send("/app/item", {}, JSON.stringify({'content': $("#content").val()}));
-// }
+function sendContent() {
+    stomp.send("/app/products", {}, JSON.stringify({
+        'title': $("#title").val(),
+        'price': $("#price").val()
+    }));
+}
 
 // рендер сообщения, полученного от сервера
 function renderItem(productJson) {

@@ -5,6 +5,7 @@ import com.polozov.springeshop.service.ProductService;
 import com.polozov.springeshop.service.SessionObjectHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,5 +50,10 @@ public class ProductController {
 	public ResponseEntity<Void> addProduct(ProductDTO dto) {
 		productService.addProduct(dto);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}
+
+	@MessageMapping("/products")
+	public void messageAddProduct(ProductDTO dto) {
+		productService.addProduct(dto);
 	}
 }
