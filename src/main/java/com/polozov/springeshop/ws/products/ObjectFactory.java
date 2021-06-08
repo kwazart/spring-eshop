@@ -6,7 +6,7 @@
 //
 
 
-package com.polozov.springeshop.ws.greeting;
+package com.polozov.springeshop.ws.products;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.polozov.springeshop.ws.greeting package. 
+ * generated in the com.polozov.springeshop.ws.products package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,34 +30,34 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.polozov.springeshop.ws.greeting
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.polozov.springeshop.ws.products
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link GetGreetingResponse }
+     * Create an instance of {@link GetProductsRequest }
      * 
      */
-    public GetGreetingResponse createGetGreetingResponse() {
-        return new GetGreetingResponse();
+    public GetProductsRequest createGetProductsRequest() {
+        return new GetProductsRequest();
     }
 
     /**
-     * Create an instance of {@link Greeting }
+     * Create an instance of {@link GetProductsResponse }
      * 
      */
-    public Greeting createGreeting() {
-        return new Greeting();
+    public GetProductsResponse createGetProductsResponse() {
+        return new GetProductsResponse();
     }
 
     /**
-     * Create an instance of {@link GetGreetingRequest }
+     * Create an instance of {@link ProductsWS }
      * 
      */
-    public GetGreetingRequest createGetGreetingRequest() {
-        return new GetGreetingRequest();
+    public ProductsWS createProductsWS() {
+        return new ProductsWS();
     }
 
 }

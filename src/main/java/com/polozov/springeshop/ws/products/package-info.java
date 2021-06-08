@@ -5,5 +5,5 @@
 // Generated on: 2021.06.08 at 05:52:22 PM MSK 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://polozov.com/springeshop/ws/greeting", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.polozov.springeshop.ws.greeting;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://polozov.com/springeshop/ws/products", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.polozov.springeshop.ws.products;
