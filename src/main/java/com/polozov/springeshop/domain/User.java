@@ -1,9 +1,6 @@
 package com.polozov.springeshop.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
 	private static final String SEQ_NAME = "user_seq";
 
 	@Id

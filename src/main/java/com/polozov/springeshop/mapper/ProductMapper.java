@@ -1,7 +1,7 @@
 package com.polozov.springeshop.mapper;
 
 import com.polozov.springeshop.domain.Product;
-import com.polozov.springeshop.dto.ProductDTO;
+import com.polozov.springeshop.dto.ProductDto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -12,12 +12,13 @@ import java.util.List;
 public interface ProductMapper {
 	ProductMapper MAPPER = Mappers.getMapper(ProductMapper.class);
 
-	Product toProduct(ProductDTO dto);
+	Product toProduct(ProductDto dto);
 
 	@InheritInverseConfiguration
-	ProductDTO fromProduct(Product product);
+	ProductDto fromProduct(Product product);
 
-	List<Product> toProductList(List<ProductDTO> productDTOS);
+	List<Product> toProductList(List<ProductDto> productDtos);
 
-	List<ProductDTO> fromProductList(List<Product> products);
+	List<ProductDto> fromProductList(List<Product> products);
+
 }

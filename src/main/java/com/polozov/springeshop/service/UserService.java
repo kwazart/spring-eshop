@@ -1,16 +1,16 @@
 package com.polozov.springeshop.service;
 
 import com.polozov.springeshop.domain.User;
-import com.polozov.springeshop.dto.UserDTO;
+import com.polozov.springeshop.dto.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
 public interface UserService extends UserDetailsService { // security
-	boolean save(UserDTO userDTO);
+	boolean save(UserDto userDTO);
 	void save(User user);
-	List<UserDTO> getAll();
+	List<UserDto> getAll();
 
 	User findByName(String name);
-	void updateProfile(UserDTO userDTO);
+	void updateProfile(UserDto userDTO);
 }

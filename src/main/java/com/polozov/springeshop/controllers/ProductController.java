@@ -1,6 +1,6 @@
 package com.polozov.springeshop.controllers;
 
-import com.polozov.springeshop.dto.ProductDTO;
+import com.polozov.springeshop.dto.ProductDto;
 import com.polozov.springeshop.service.ProductService;
 import com.polozov.springeshop.service.SessionObjectHolder;
 import org.springframework.http.HttpStatus;
@@ -29,17 +29,17 @@ public class ProductController {
 	}
 
 	@GetMapping
-	public String list(Model model) {
+	public String list(Model model){
 		sessionObjectHolder.addClick();
-		List<ProductDTO> list = productService.getAll();
+		List<ProductDto> list = productService.getAll();
 		model.addAttribute("products", list);
 		return "products";
 	}
 
 	@GetMapping("/{id}/bucket")
-	public String addBucket(@PathVariable Long id, Principal principal) {
+	public String addBucket(@PathVariable Long id, Principal principal){
 		sessionObjectHolder.addClick();
-		if (principal == null) {
+		if(principal == null){
 			return "redirect:/products";
 		}
 		productService.addToUserBucket(id, principal.getName());
@@ -47,13 +47,14 @@ public class ProductController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> addProduct(ProductDTO dto) {
+	public ResponseEntity<Void> addProduct(ProductDto dto){
 		productService.addProduct(dto);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 
 	@MessageMapping("/products")
-	public void messageAddProduct(ProductDTO dto) {
+	public void messageAddProduct(ProductDto dto){
 		productService.addProduct(dto);
 	}
+
 }

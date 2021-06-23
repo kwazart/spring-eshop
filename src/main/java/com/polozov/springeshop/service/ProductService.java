@@ -1,11 +1,11 @@
 package com.polozov.springeshop.service;
 
-import com.polozov.springeshop.dto.ProductDTO;
+import com.polozov.springeshop.dto.ProductDto;
 
 import java.util.List;
 
 public interface ProductService {
-	List<ProductDTO> getAll();
+	List<ProductDto> getAll();
 	void addToUserBucket(Long productId, String username);
-	void addProduct(ProductDTO dto);
+	void addProduct(ProductDto dto);
 }

@@ -1,9 +1,6 @@
 package com.polozov.springeshop.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,13 +25,13 @@ public class Order {
 	@CreationTimestamp
 	private LocalDateTime created;
 	@UpdateTimestamp
-	private LocalDateTime updated;
+	private LocalDateTime changed;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	private BigDecimal sum;
 	private String address;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
 	private List<OrderDetails> details;
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status;

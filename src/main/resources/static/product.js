@@ -23,7 +23,6 @@ $(function () {
     });
     $( "#send" ).click(function() { sendContent(); });
 });
-
 // отправка сообщения на сервер
 function sendContent() {
     stomp.send("/app/products", {}, JSON.stringify({
@@ -36,8 +35,8 @@ function sendContent() {
 function renderItem(productJson) {
     var product = JSON.parse(productJson.body);
     $("#table").append("<tr>" +
-        "<td>" + product.title + "</td>" +
-        "<td>" + product.price + "</td>" +
-        "<td><a href='/products'" + product.id + "/bucket'>Add to backet</a></td>" +
+        "<td>" +product.title +"</td>" +
+        "<td>" +product.price +"</td>" +
+        "<td><a href='/products/" + product.id +"/bucket'>Add to bucket</a></td>" +
         "</tr>");
 }

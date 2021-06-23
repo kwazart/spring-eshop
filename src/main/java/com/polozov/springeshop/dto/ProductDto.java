@@ -7,8 +7,8 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
-public class ProductDTO {
+public class ProductDto {
 	private Long id;
 	private String title;
-	private BigDecimal price;
+	private Double price;
 }

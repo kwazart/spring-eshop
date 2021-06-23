@@ -17,26 +17,28 @@ public class MainController {
 		this.sessionObjectHolder = sessionObjectHolder;
 	}
 
-	@RequestMapping({"", "/"})
-	public String index(Model model, HttpSession httpSession) {
+	@RequestMapping({"","/"})
+	public String index(Model model, HttpSession httpSession){
 		model.addAttribute("amountClicks", sessionObjectHolder.getAmountClicks());
-		if (httpSession.getAttribute("myID") == null) {
+		if(httpSession.getAttribute("myID") == null){
 			String uuid = UUID.randomUUID().toString();
 			httpSession.setAttribute("myID", uuid);
 			System.out.println("Generated UUID -> " + uuid);
 		}
 		model.addAttribute("uuid", httpSession.getAttribute("myID"));
+
 		return "index";
 	}
 
 	@RequestMapping("/login")
-	public String login() {
+	public String login(){
 		return "login";
 	}
 
-	@RequestMapping("/login-error") // чтобы пользователь попал на 404-page
-	public String loginError(Model model) {
+	@RequestMapping("/login-error")
+	public String loginError(Model model){
 		model.addAttribute("loginError", true);
 		return "login";
 	}
+
 }

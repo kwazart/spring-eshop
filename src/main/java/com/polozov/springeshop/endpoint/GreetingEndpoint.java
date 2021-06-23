@@ -25,10 +25,13 @@ public class GreetingEndpoint {
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URL, localPart = "getGreetingRequest")
-	@ResponsePayload // полезная нагрузка
-	public GetGreetingResponse getGreeting(@RequestPayload GetGreetingRequest request) throws DatatypeConfigurationException {
+	@ResponsePayload
+	public GetGreetingResponse getGreeting(@RequestPayload GetGreetingRequest request)
+			throws DatatypeConfigurationException {
 		GetGreetingResponse response = new GetGreetingResponse();
+
 		response.setGreeting(greetingService.generateGreeting(request.getName()));
+
 		return response;
 	}
 }
