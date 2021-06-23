@@ -1,9 +1,6 @@
 package com.polozov.springeshop.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,4 +26,11 @@ public class OrderDetails {
 	private Product product;
 	private BigDecimal amount;
 	private BigDecimal price;
+
+	public OrderDetails(Order order, Product product, Long amount) {
+		this.order = order;
+		this.product = product;
+		this.amount = new BigDecimal(amount);
+		this.price = new BigDecimal(product.getPrice());
+	}
 }
