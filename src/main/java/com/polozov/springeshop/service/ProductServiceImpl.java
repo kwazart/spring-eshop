@@ -66,4 +66,10 @@ public class ProductServiceImpl implements ProductService {
 		template.convertAndSend("/topic/products",
 				ProductMapper.MAPPER.fromProduct(savedProduct));
 	}
+
+	@Override
+	public ProductDto getById(Long id) {
+		Product product = productRepository.findById(id).orElse(new Product());
+		return ProductMapper.MAPPER.fromProduct(product);
+	}
 }
