@@ -1,4 +1,4 @@
-package com.polozov.springeshop;
+package com.polozov.springeshop.controllers;
 
 import com.polozov.springeshop.dto.ProductDto;
 import org.junit.jupiter.api.Assertions;
